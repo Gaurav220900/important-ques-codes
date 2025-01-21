@@ -1,0 +1,24 @@
+class Solution {
+    public int majorityElement(int[] nums) {
+        int me = nums[0];
+        int count =  1;
+
+        for(int i=1;i<nums.length;i++){
+            if(nums[i] != me){
+                count--;
+                if(count == 0){
+                    me = nums[i];
+                    count = 1;
+                }
+            }else{
+                count++;
+            }
+        }
+        return me;
+    }
+}
+
+Moore’s Voting Algorithm- O(n) Time and O(1) Space.
+In this approach, we first choose a candidate element and 
+will traverse it over the array. The count of majority will 
+always be more than or equal to 1 by using this algorithm.
